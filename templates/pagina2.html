@@ -5,30 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Quem Somos </title>
-    <style>
-        .link{
-            margin-left: 475px;
-        }
-        .link2{
-            margin-left: 10px;
-        }
-        .link3{
-            margin-left: 10px;
-        }
-
-        body{
-            margin-left: 300px;
-            margin-right: 700px;
-        }
-       
-    </style>
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/estilo.css')}}">
 </head>
-<body background="imagens do desafio1/fundo2.png">
+<body background="{{url_for ('static', filename='images/fundo2.png')}}">
 
 <hr style="height:10px ;color:rgb(109, 120, 168);background-color:rgb(109, 120, 168);">
 
 <div style="padding-bottom: 16px;">
-<spam><img src="imagens do desafio1/logo.png"><a class="link" href="index.html">Home</a><a class="link2" href="pagina2.html">Quem Somos</a><a href="pagina3.html" class="link3">Contato</a></spam>
+<spam><img src="{{url_for ('static', filename='images/logo.png')}}"><a class="link" href="/">Home</a><a class="link2" href="/pagina2">Quem Somos</a><a href="/pagina3" class="link3">Contato</a></spam>
 </div>
 <h1>Quem Somos</h1>
 <div>
