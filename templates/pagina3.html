@@ -12,7 +12,7 @@
     <hr style="height:10px ;color:rgb(109, 120, 168);background-color:rgb(109, 120, 168);">
     
     <div style="padding-bottom: 16px;">
-    <spam><img src="{{url_for ('static', filename='images/logo.png')}}"><a class="link" href="/">Home</a><a class="link2" href="/pagina2">Quem Somos</a><a href="/pagina3" class="link3">Contato</a></spam>
+    <spam><img src="{{url_for ('static', filename='images/logo.png')}}"><a class="link" href="/">Home</a><a class="link2" href="/quemsomos">Quem Somos</a><a href="/contato" class="link3">Contato</a></spam>
     </div>
 <div>
     <h1> Entre em contato </h1>
@@ -21,21 +21,42 @@
 
 <hr>
 
-<form action="mensagemenviada.html">
+<form action="/envio" method="POST">
     <label for="email">Seu e-mail:</label><br>
     <input type="text" id="email" name="email"><br>
     <label for="assunto">Assunto:</label><br>
     <input type="text" id="assunto" name="assunto"><br>
     <label for="descricao">Descrição:</label><br>
-    <textarea name="mensagem" rows="10" cols="30"></textarea><br><br>
+    <textarea name="mensagem" id="mensagem" rows="10" cols="30"></textarea><br><br>
     <input type="submit">
 
 </form>
-
+{{mensagem}}
 <div>
     <p style="text-align:center ;"><b>Todos os direitos reservados</b></p>
 </div>
 
+<div>
+    <table class="table" border="2px">
+        <thead>
+            <tr>
+                <th scope="col">E-MAIL</th>
+                <th scope="col">ASSUNTO</th>
+                <th scope="col">MENSAGEM</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in contato%}
+            <tr>
+                <td>{{item[1]}}</td>
+                <td>{{item[2]}}</td>
+                <td>{{item[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

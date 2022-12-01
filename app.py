@@ -1,19 +1,14 @@
 from flask import Flask, render_template
+from db import mysql
+from routes.routes import routes
 
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+app.add_url_rule(routes["index_route"],view_func=routes["indexcontroller"])
 
-@app.route('/pagina2')
-def pagina2():
-    return render_template('pagina2.html')
+app.add_url_rule(routes["quemsomos_route"],view_func=routes["quemsomos_controller"])
 
-@app.route('/pagina3')
-def pagina3():
-    return render_template('pagina3.html')
+app.add_url_rule(routes["contato_route"],view_func=routes["contato_controller"])
 
-if __name__== '__main__':
-    app.run(debug=True)
+app.add_url_rule(routes["envio_route"],view_func=routes["envio_controller"])
